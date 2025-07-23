@@ -5,7 +5,7 @@
 }
 body {
     margin: 0;
-    font-family: "Volkhov", serif;
+    font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
     background: linear-gradient(to right, rgb(100, 100, 238),indigo);
@@ -15,15 +15,16 @@ body {
 }
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 90%;
-    max-width: 600px;
-    padding: 20px;
+    max-width: 500px;
+    padding: 10px;
 }
 button {
     padding: 20px;
-    font-family: "Volkhov", serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     background-color: rgb(235, 235, 143);
@@ -32,10 +33,11 @@ button {
     cursor: pointer;
 }
 .game-container {
-    width: 500px;
-    height: 300px;
+    width: 90%;
+    max-width: 500px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 img {
     width: 100px;
@@ -44,14 +46,14 @@ img {
 }
 #score-head {
     margin: 0;
-    font-family: "Volkhov", serif;
+    font-family: "Righteous", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: aquamarine;
     font-size: 35px;
     display: flex;
     justify-content: start;
-    padding: 30px;
+    padding: 10px;
 }
 img.flip {
   transform: rotateY(180deg);

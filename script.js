@@ -66,7 +66,7 @@ function generateBoard() {
         const card = document.createElement('img');
         card.setAttribute('src','assets/gray_back.png');
         card.setAttribute("data-id",i);
-        card.addEventListener('click',filpCard);
+        card.addEventListener('click',flipCard);
         game_board.appendChild(card);
     }
     console.log(cardIcon);
@@ -76,7 +76,7 @@ let card_chose = [];
 let card_chose_id = [];
 
 
-function filpCard() {
+function flipCard() {
     const card_id = this.getAttribute("data-id");
     this.setAttribute('src',cardIcon[card_id].img);
     this.classList.add('flip');
@@ -96,12 +96,14 @@ function checkMatch() {
 
     if (card_chose[0] == card_chose[1]) {
         alert("You have found a match");
-        card1.removeEventListener('click', filpCard);
-        card2.removeEventListener('click', filpCard);
+        card1.removeEventListener('click', flipCard);
+        card2.removeEventListener('click', flipCard);
         cardWon.push(card_chose[0]);
         resultDisplay.innerHTML = cardWon.length;
     } else {
         setTimeout(() => {
+            card1.setAttribute('src', 'assets/gray_back.png');
+            card2.setAttribute('src', 'assets/gray_back.png');
             card1.classList.remove('flip');
             card2.classList.remove('flip');
         }, 800);
@@ -110,17 +112,13 @@ function checkMatch() {
     card_chose = [];
     card_chose_id = [];
 }
-if (game_board) {
-    game_board.innerHTML = ``;
-} else {
-    console.error("game_board element not found!");
-}
+
 function restartGame() {
     card_chose = [];
     card_chose_id = [];
     cardWon = [];
     resultDisplay.innerHTML = 0;
-    game_board.innerHTML = ``;
+    game_board.innerHTML = '';
     cardIcon.sort(() => 0.5 - Math.random());
     generateBoard();
 }
