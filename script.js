@@ -18,8 +18,8 @@ const cardIcon = [
         name: "king_spade",
         img: "assets/King_spade.jpg"
     },{
-        name: "king_diamond",
-        img: "assets/King-diamond.webp"
+        name: "9_diamond",
+        img: "assets/9_diamond.png"
     },{
         name: "queen_spade",
         img: "./assets/Queen_spade.jpg"
@@ -44,8 +44,8 @@ const cardIcon = [
         name: "king_spade",
         img: "assets/King_spade.jpg"
     },{
-        name: "king_diamond",
-        img: "assets/King-diamond.webp"
+        name: "9_diamond",
+        img: "assets/9_diamond.png"
     },{
         name: "queen_spade",
         img: "./assets/Queen_spade.jpg"
@@ -95,7 +95,6 @@ function checkMatch() {
     const card2 = document.querySelector(`[data-id="${card_chose_id[1]}"]`);
 
     if (card_chose[0] == card_chose[1]) {
-        alert("You have found a match");
         card1.removeEventListener('click', flipCard);
         card2.removeEventListener('click', flipCard);
         cardWon.push(card_chose[0]);
@@ -117,7 +116,7 @@ function restartGame() {
     card_chose = [];
     card_chose_id = [];
     cardWon = [];
-    resultDisplay.innerHTML = 0;
+    resultDisplay.textContent = '0';
     game_board.innerHTML = '';
     cardIcon.sort(() => 0.5 - Math.random());
     generateBoard();
